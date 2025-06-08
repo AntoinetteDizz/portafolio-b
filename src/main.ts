@@ -8,7 +8,7 @@ async function bootstrap() {
   // Configuración de CORS para desarrollo y producción
   const allowedOrigins = [
     'http://localhost:3001', // Desarrollo local
-    'https://tu-frontend-en-render.onrender.com' // Reemplaza con tu URL de frontend en Render
+    'https://portafolio-f.onrender.com/' // Reemplaza con tu URL de frontend en Render
   ];
 
   app.use(cors({
