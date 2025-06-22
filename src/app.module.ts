@@ -4,9 +4,12 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DatabaseModule } from './database/database.module';
+import { ProyectoModule } from './proyecto/proyecto.module';
+import { TecnologiaModule } from './tecnologia/tecnologia.module';
 
 @Module({
-  imports: [ConfigModule.forRoot(),
+  imports: [
+    ConfigModule.forRoot(),
     // Configura la conexión principal a la base de datos PostgreSQL usando TypeORM.
     TypeOrmModule.forRoot({
       type: 'postgres',
@@ -26,7 +29,10 @@ import { DatabaseModule } from './database/database.module';
         },
       }),
     }),
-    DatabaseModule,],
+    DatabaseModule,
+    ProyectoModule,
+    TecnologiaModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
