@@ -12,7 +12,9 @@ export class TecnologiaService {
   ) {}
 
   findAll() {
-    return this.tecnologiaRepository.find();
+    return this.tecnologiaRepository
+      .createQueryBuilder('tecnologia')
+      .getMany();
   }
 
   create(createTecnologiaDto: CreateTecnologiaDto) {
