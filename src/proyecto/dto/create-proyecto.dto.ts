@@ -5,7 +5,6 @@ export class CreateProyectoDto {
   titulo: string;
 
   @IsString()
-  @IsUrl()
   @IsOptional()
   imagen?: string;
 

@@ -5,7 +5,6 @@ export class CreateTecnologiaDto {
   nombre: string;
 
   @IsString()
-  @IsUrl()
   @IsOptional()
   imagen?: string;
 
