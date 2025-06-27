@@ -1,98 +1,234 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 🚀 Backend Portfolio - API NestJS
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Backend desarrollado con NestJS para gestionar proyectos y tecnologías de un portfolio personal. Esta API proporciona endpoints RESTful para crear y consultar proyectos y tecnologías.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 📋 Tabla de Contenidos
 
-## Description
+- [Características](#características)
+- [Tecnologías Utilizadas](#tecnologías-utilizadas)
+- [Instalación](#instalación)
+- [Uso](#uso)
+- [Endpoints de la API](#endpoints-de-la-api)
+- [Estructura del Proyecto](#estructura-del-proyecto)
+- [Configuración](#configuración)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## ✨ Características
 
-## Project setup
+- **API RESTful** con NestJS
+- **Validación de datos** con class-validator
+- **CORS configurado** para desarrollo y producción
+- **Base de datos** con TypeORM y PostgreSQL
+- **Estructura modular** y escalable
+- **Documentación automática** de endpoints
 
+## 🛠️ Tecnologías Utilizadas
+
+- **NestJS** - Framework de Node.js
+- **TypeScript** - Lenguaje de programación
+- **TypeORM** - ORM para base de datos
+- **PostgreSQL** - Base de datos relacional
+- **class-validator** - Validación de datos
+- **Jest** - Testing framework
+
+## 📦 Instalación
+
+1. **Clona el repositorio**
+   ```bash
+   git clone <url-del-repositorio>
+   cd portafolio-b
+   ```
+
+2. **Instala las dependencias**
+   ```bash
+   npm install
+   # o
+   yarn install
+   ```
+
+3. **Configura las variables de entorno**
+   Crea un archivo `.env` en la raíz del proyecto:
+   ```env
+   PORT=3000
+   DATABASE_URL=postgresql://usuario:password@localhost:5432/nombre_db
+   ```
+
+4. **Ejecuta las migraciones de la base de datos**
+   ```bash
+   npm run migration:run
+   ```
+
+## 🚀 Uso
+
+### Desarrollo
 ```bash
-$ npm install
+npm run start:dev
 ```
 
-## Compile and run the project
-
+### Producción
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+npm run build
+npm run start:prod
 ```
 
-## Run tests
-
+### Testing
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npm run test
+npm run test:e2e
 ```
 
-## Deployment
+## 📡 Endpoints de la API
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+### Base URL
+```
+http://localhost:3000
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### 1. Página Principal
+- **GET** `/`
+  - **Descripción**: Página de bienvenida con HTML
+  - **Respuesta**: Página HTML indicando que la API está funcionando
+  - **Ejemplo**: `http://localhost:3000/`
 
-## Resources
+### 2. Saludo
+- **GET** `/api/saludo`
+  - **Descripción**: Endpoint de prueba con mensaje de saludo
+  - **Respuesta**: `{ "message": "Hola desde el backend!" }`
+  - **Ejemplo**: `http://localhost:3000/api/saludo`
 
-Check out a few resources that may come in handy when working with NestJS:
+### 3. Proyectos
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+#### Obtener todos los proyectos
+- **GET** `/proyectos`
+  - **Descripción**: Lista todos los proyectos
+  - **Respuesta**: Array de proyectos
+  - **Ejemplo**: `http://localhost:3000/proyectos`
 
-## Support
+#### Crear un nuevo proyecto
+- **POST** `/proyectos`
+  - **Descripción**: Crea un nuevo proyecto
+  - **Body** (JSON):
+    ```json
+    {
+      "titulo": "Nombre del proyecto",
+      "imagen": "https://ejemplo.com/imagen.jpg",
+      "urlRepo": "https://github.com/usuario/proyecto",
+      "tecnologiasIds": [1, 2, 3]
+    }
+    ```
+  - **Campos requeridos**:
+    - `titulo` (string): Nombre del proyecto
+    - `urlRepo` (string, URL): Enlace al repositorio
+    - `tecnologiasIds` (array de números): IDs de las tecnologías utilizadas
+  - **Campos opcionales**:
+    - `imagen` (string, URL): URL de la imagen del proyecto
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### 4. Tecnologías
 
-## Stay in touch
+#### Obtener todas las tecnologías
+- **GET** `/tecnologias`
+  - **Descripción**: Lista todas las tecnologías
+  - **Respuesta**: Array de tecnologías
+  - **Ejemplo**: `http://localhost:3000/tecnologias`
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+#### Crear una nueva tecnología
+- **POST** `/tecnologias`
+  - **Descripción**: Crea una nueva tecnología
+  - **Body** (JSON):
+    ```json
+    {
+      "nombre": "React",
+      "imagen": "https://ejemplo.com/react-logo.png",
+      "categoria": "Frontend"
+    }
+    ```
+  - **Campos requeridos**:
+    - `nombre` (string): Nombre de la tecnología
+    - `categoria` (string): Categoría de la tecnología
+  - **Campos opcionales**:
+    - `imagen` (string, URL): URL del logo de la tecnología
 
-## License
+### 5. Base de Datos
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+#### Verificar estado de la base de datos
+- **GET** `/database/status`
+  - **Descripción**: Verifica la conexión a la base de datos
+  - **Respuesta**: 
+    ```json
+    {
+      "status": "ok",
+      "message": "Conexión exitosa a la base de datos"
+    }
+    ```
+  - **Ejemplo**: `http://localhost:3000/database/status`
+
+## 📁 Estructura del Proyecto
+
+```
+src/
+├── app.controller.ts          # Controlador principal
+├── app.module.ts             # Módulo principal
+├── app.service.ts            # Servicio principal
+├── main.ts                   # Punto de entrada
+├── database/                 # Módulo de base de datos
+│   ├── database.controller.ts
+│   └── database.module.ts
+├── proyecto/                 # Módulo de proyectos
+│   ├── dto/
+│   │   └── create-proyecto.dto.ts
+│   ├── entities/
+│   │   └── proyecto.entity.ts
+│   ├── proyecto.controller.ts
+│   ├── proyecto.module.ts
+│   └── proyecto.service.ts
+└── tecnologia/               # Módulo de tecnologías
+    ├── dto/
+    │   └── create-tecnologia.dto.ts
+    ├── entities/
+    │   └── tecnologia.entity.ts
+    ├── tecnologia.controller.ts
+    ├── tecnologia.module.ts
+    └── tecnologia.service.ts
+```
+
+## ⚙️ Configuración
+
+### Variables de Entorno
+- `PORT`: Puerto del servidor (por defecto: 3000)
+- `DATABASE_URL`: URL de conexión a PostgreSQL
+
+### CORS
+La API está configurada para permitir peticiones desde:
+- `http://localhost:3001` (desarrollo local)
+- `https://portafolio-f.onrender.com` (producción)
+
+### Validación
+- Se utiliza `ValidationPipe` global para validar todos los datos de entrada
+- Los DTOs están configurados con decoradores de validación
+- Se eliminan automáticamente propiedades no permitidas
+
+## 🧪 Testing
+
+```bash
+# Tests unitarios
+npm run test
+
+# Tests e2e
+npm run test:e2e
+
+# Cobertura de tests
+npm run test:cov
+```
+
+## 📝 Scripts Disponibles
+
+- `npm run build` - Compila el proyecto
+- `npm run start` - Inicia el servidor
+- `npm run start:dev` - Inicia en modo desarrollo con hot reload
+- `npm run start:debug` - Inicia en modo debug
+- `npm run start:prod` - Inicia en modo producción
+- `npm run lint` - Ejecuta el linter
+- `npm run format` - Formatea el código con Prettier
+
+---
+
+**Desarrollado con ❤️ usando NestJS**
